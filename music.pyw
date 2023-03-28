@@ -16,7 +16,6 @@ from pygame import mixer
 os.environ['SDL_VIDEO_WINDOW_POS'] = "%d, %d" %((73.15*width)/100, (46.6*height)/100)
 pygame.init()
 i_icon = open(r"C:\Users\nagir\OneDrive\Desktop\r1.png")
-pic1 = open(r"C:\Users\nagir\OneDrive\Desktop\pic1.png")
 icon = pygame.image.load(i_icon)
 pygame.display.set_icon(icon)
 WIDTH, HEIGHT = 500, 500
