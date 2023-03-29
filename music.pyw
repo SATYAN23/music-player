@@ -1,14 +1,13 @@
 import pygame
 import pygame_gui
 from pygame_gui.core import ObjectID
-import sys
 import pandas as pd
+import sys
 import numpy as np
 import os
 #import warnings
 import pyautogui
 width, height = pyautogui.size()
-from pygame.locals import *
 from pygame import mixer
 
 #warnings.filterwarnings("ignore")
@@ -16,6 +15,7 @@ from pygame import mixer
 os.environ['SDL_VIDEO_WINDOW_POS'] = "%d, %d" %((73.15*width)/100, (46.6*height)/100)
 pygame.init()
 i_icon = open(r"C:\Users\nagir\OneDrive\Desktop\r1.png")
+pic1 = open(r"C:\Users\nagir\OneDrive\Desktop\rx.png")
 icon = pygame.image.load(i_icon)
 pygame.display.set_icon(icon)
 WIDTH, HEIGHT = 500, 500
@@ -25,7 +25,6 @@ font = pygame.font.SysFont("Segoe UI ", 25)
 
 theme = os.getcwd() + ".\entry_line.json"
 manager = pygame_gui.UIManager((500, 500), theme)
-manager.get_theme().load_theme(theme)
 
 
 text_input3 = pygame_gui.elements.UITextEntryLine(
@@ -51,7 +50,7 @@ SCREEN.fill((255,255,255))
 class main():
 
     def username():
-        global X, Y, li, li1, li2, id_, text1, text2, pic
+        global X, Y, li, li1, li2, id_, text1, text2, pic, pic1
         
         while True:
 
@@ -61,8 +60,6 @@ class main():
                 if event.type == pygame.QUIT:
                     pygame.quit()
                     sys.exit()
-                    file = open(r"C:\Users\nagir\OneDrive\Desktop\data_information.csv")
-                    df.to_csv(file, index = False)
 
                 if (event.type == pygame_gui.UI_TEXT_ENTRY_FINISHED and
                     event.ui_object_id == '#main_text_entry3'):
@@ -84,6 +81,9 @@ class main():
 
                     else:
                         mixer.music.load(r"C:\Users\nagir\OneDrive\Desktop\music.mp3")
+                        imp = pygame.image.load(pic1).convert()
+                        SCREEN.fill((255,255,255))
+                        SCREEN.blit(imp, (250, 200))
                         mixer.music.set_volume(0.3)
                         mixer.music.play()    
 
